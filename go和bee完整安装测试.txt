@@ -1,0 +1,76 @@
+https://www.jianshu.com/p/7a0eca529436
+
+https://blog.csdn.net/qq_36308324/article/details/87884302
+Centos7.5安装部署Golang、Beego框架
+
+安装Golang
+1.进入home目录下
+cd /home 
+2.mkdir Go 创建一个Golang的目录
+mkdir Go
+cd Go
+
+
+3-4.复制下载文件链接，在命令行执行代码：
+wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+
+
+5.解压缩
+tar xzvf  go1.11.linux-amd64.tar.gz
+
+
+6.设置环境变量：
+vi ~/.bashrc
+
+注意，用zsh的话就是zshrc
+
+
+~/.bashrc文件不会自动执行
+/etc/profile  --> /etc/zsh/zshenv
+~/.profile    -->  ~/.zprofile 
+~/.bashrc   -->  ~/.zshrc
+
+
+7. 添加
+
+添加：
+export GOROOT=/home/Go/go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/Go/go-project
+export PATH=$PATH:$GOPATH/bin
+
+
+8.执行环境变量
+
+source ~/.zshrc
+
+
+
+安装Beego
+1.安装git
+yum install git
+
+
+2.git下载beego和bee
+
+
+> go get github.com/astaxie/beego
+
+> go get github.com/beego/bee  //安装bee 工具
+
+
+3. 测试 
+
+cd $GOPATH/src
+bee new class
+
+4.进入class目录
+cd class
+
+5. 运行mian.go文件
+
+go run main.go 
+
+
+6. 打开8080访问，显示欢迎页面，ok~
+
